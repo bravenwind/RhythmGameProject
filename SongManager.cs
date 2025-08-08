@@ -172,8 +172,8 @@ public class SongManager : MonoBehaviour
 
     void SelectSong(string title, string artist)
     {
-        GameManager.Instance.songTitle = title;
-        GameManager.Instance.songArtist = artist;
+        GameManager.SelectedSongTitle = title;
+        GameManager.SelectedSongArtist = artist;
         SceneManager.LoadScene("MainScene");
     }
 }

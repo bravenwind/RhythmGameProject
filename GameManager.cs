@@ -52,6 +52,8 @@ public class GameManager : MonoBehaviour
     private NoteChart chart;
     private bool[] noteSpawned;   // 노트가 생성됐는지 여부 저장
     public static GameManager Instance;
+    public static string SelectedSongTitle;
+    public static string SelectedSongArtist;
 
     public Transform judgementLine;      // 에디터에서 드래그
     public float scrollSpeed = 10f;       // 초당 유닛 이동
@@ -82,6 +84,9 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
+        songTitle = SelectedSongTitle;
+        songArtist = SelectedSongArtist;
+
         // JSON 파일 로드
         TextAsset json = Resources.Load<TextAsset>(songTitle.ToString() + " - " + songArtist.ToString()+"/" + "EZ");
         chart = JsonUtility.FromJson<NoteChart>(json.text);
